@@ -18,4 +18,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-# should you run with any issues or need to do modifications, contact YussefMx
+
+      - name: Create PR warning
+        if: failure()
+        run: |
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          COMMENT="Gitleaks scan failed. Check the actions tab for more details."
+          gh pr review "$PR_NUMBER" --comment "$COMMENT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
