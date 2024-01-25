@@ -18,4 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+      - name: Create warning
+        if: failure()
+        run: echo "::warning file=gitleaks.yml,line=14::Gitleaks scan failed"
 # should you run with any issues or need to do modifications, contact YussefMx
