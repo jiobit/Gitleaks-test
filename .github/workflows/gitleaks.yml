@@ -22,6 +22,7 @@ jobs:
       - name: Create PR warning
         if: failure()
         run: |
+          cat "$GITHUB_EVENT_PATH"
           PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
           COMMENT="Gitleaks scan failed. Check the actions tab for more details."
           gh pr review "$PR_NUMBER" --comment "$COMMENT"
