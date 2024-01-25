@@ -26,4 +26,4 @@ jobs:
           COMMENT="Gitleaks scan failed. Check the actions tab for more details."
           gh pr review "$PR_NUMBER" --comment "$COMMENT"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
