@@ -1,1 +1,2 @@
-
+#you remove the secret.
+AKIAIOSFODNN7EXAMPLE
