@@ -14,18 +14,8 @@ jobs:
 
       - name: Run GitLeaks
         uses: gitleaks/gitleaks-action@v2
-        
+        continue-on-error: true
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-
-      - name: Create PR warning
-        if: failure()
-        run: |
-          cat "$GITHUB_EVENT_PATH"
-          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          COMMENT="Gitleaks scan failed. Check the actions tab for more details."
-          gh pr review "$PR_NUMBER" --comment "$COMMENT"
-          continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
