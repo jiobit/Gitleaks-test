@@ -1,3 +1,5 @@
+
+
 name: TruffleHog
 on:
   pull_request:
@@ -16,3 +18,9 @@ jobs:
       uses: trufflesecurity/trufflehog@main
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: scan-push
+      uses: trufflesecurity/trufflehog@main
+      with:
+        base: ""
+        head: ${{ github.ref_name }}
+        extra_args: --only-verified
