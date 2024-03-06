@@ -3,13 +3,4 @@ this is the another test with secrets
 AIOSFODNN7EXAMPLE
 
 
-AKIAIOSFODNN7EXAMPLE#you remove the secret.
-AKIAIOSFODNN7EXAMPLE
 
-
-AKIAIOSFODNN7EXAMPLE#you remove the secret.
-AKIAIOSFODNN7EXAMPLE
-
-
-AKIAIOSFODNN7EXAMPLE#you remove the secret.
-AKIAIOSFODNN7EXAMPLE
